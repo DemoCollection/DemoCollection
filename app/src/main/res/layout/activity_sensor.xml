@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--开启指南针-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openOritation"
+        android:text="开启指南针传感器" />
+
+    <!--指南针显示结果-->
+    <TextView
+        android:id="@+id/oritation_sersor_result"
+        android:layout_width="match_parent"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+
+    <!--开启光传感器-->
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openLight"
+        android:text="开启光传感器" />
+
+    <!--指南针显示结果-->
+    <TextView
+        android:id="@+id/light_sersor_result"
+        android:layout_width="match_parent"
+        android:textSize="16sp"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

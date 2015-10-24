@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="mo.com.democollection.ui.EncryptUI">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--MD5加密-->
+            <EditText
+                android:id="@+id/et_md5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入MD5密文" />
+
+            <Button
+                android:id="@+id/btn_md5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="Md5"
+                android:text="MD5文本加密（32位大写）" />
+            <!--解密结果-->
+            <TextView
+                android:id="@+id/tv_md5_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="结果"
+                android:textSize="18sp" />
+
+            <!--RSA加密-->
+            <EditText
+                android:id="@+id/et_rsa_pulich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="36dp"
+                android:hint="请输入RSA公钥" />
+
+            <EditText
+                android:id="@+id/et_rsa_private"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入RSA私钥" />
+
+            <EditText
+                android:id="@+id/et_rsa"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="请输入需要RSA加密的密文" />
+
+            <Button
+                android:id="@+id/btn_rsa_publich"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="RSA_publich"
+                android:text="RSA私钥加密——公钥解密" />
+
+            <Button
+                android:id="@+id/btn_rsa_private"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:onClick="RSA_private"
+                android:text="RSA公钥加密——私钥解密" />
+            <!--解密结果-->
+            <TextView
+                android:id="@+id/tv_RSA_result"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="结果"
+                android:textSize="18sp" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

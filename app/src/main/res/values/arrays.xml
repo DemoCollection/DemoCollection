@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="app_list">
+        <item>网页视频</item>
+        <item>手机视频</item>
+        <item>音乐</item>
+        <item>通知</item>
+        <item>分享</item>
+        <item>二维码</item>
+        <item>传感器</item>
+        <item>加密</item>
+        <item>选择相片上传（百度云）</item>
+    </string-array>
+
+    <string-array name="sdk_list">
+        <item>百度云盘</item>
+        <item>百度地图</item>
+        <item>微信支付</item>
+        <item>支付宝支付</item>
+        <item>即时通讯</item>
+        <item>ShardSDK分享</item>
+    </string-array>
+</resources>

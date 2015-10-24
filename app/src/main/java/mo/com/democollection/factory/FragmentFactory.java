@@ -9,6 +9,7 @@ import java.util.Map;
 import mo.com.democollection.base.BaseFragment;
 import mo.com.democollection.fragment.AppFragment;
 import mo.com.democollection.fragment.HomeFragment;
+import mo.com.democollection.fragment.SDKFragment;
 import mo.com.democollection.utils.LogUtils;
 
 
@@ -26,6 +27,7 @@ public class FragmentFactory {
 
     public static final int FRAGMENT_HOME = 0;
     public static final int FRAGMENT_APP = 1;
+    public static final int FRAGMENT_SDK = 2;
     private static final String TAG = "FragmentFactory";
 
     /*使用集合将Fragment缓存*/
@@ -44,11 +46,18 @@ public class FragmentFactory {
         LogUtils.i(TAG, "加载" + position);
         BaseFragment fragment = null;
         switch (position) {
+            //首页
             case FRAGMENT_HOME:
                 fragment = new HomeFragment();
                 break;
+
+            //应用
             case FRAGMENT_APP:
                 fragment = new AppFragment();
+                break;
+
+            case FRAGMENT_SDK:
+                fragment = new SDKFragment();
                 break;
             default:
                 break;

@@ -22,6 +22,9 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import mo.com.democollection.activity.LoginActivity;
 import mo.com.democollection.base.BaseFragment;
 import mo.com.democollection.base.Loadingpager;
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView mNavigationView;
     private ImageView mUserHeader;
     private FloatingActionButton mFab;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +56,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     protected void initToolBar() {
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.id_toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.id_toolbar);
         mToolbar.setTitleTextColor(UIUtils.getColor(R.color.window_background));
+
+        SimpleDateFormat formatter = new SimpleDateFormat ("yyyy年MM月dd日 HH:mm:ss ");
+        Date curDate = new Date(System.currentTimeMillis());//获取当前时间
+        String str = formatter.format(curDate);
+        mToolbar.setTitle(str);
+
+
         setSupportActionBar(mToolbar);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -67,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      * 设置监听事件的初始化
      */
     protected void initListener() {
+
 
         mFab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -140,7 +152,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     protected void initView() {
-        setContentView(R.layout.activity_main);
         mTabs = (TabLayout) findViewById(R.id.tabs);
         viewPager = (ViewPager) findViewById(R.id.viewPager);
         mDrawer = (DrawerLayout) findViewById(R.id.main_drawer);
