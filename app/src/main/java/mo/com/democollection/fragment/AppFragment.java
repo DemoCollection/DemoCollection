@@ -18,13 +18,17 @@ import android.widget.TextView;
 
 import mo.com.democollection.MainActivity;
 import mo.com.democollection.R;
+import mo.com.democollection.app_activity.MovieActivity;
+import mo.com.democollection.app_activity.NetWork_Activity;
 import mo.com.democollection.base.BaseFragment;
 import mo.com.democollection.base.Loadingpager;
 import mo.com.democollection.ui.DimensionalCodeUI;
 import mo.com.democollection.ui.EncryptUI;
+import mo.com.democollection.ui.GalleryDemo;
 import mo.com.democollection.ui.MusicUI;
 import mo.com.democollection.ui.SenSorUI;
 import mo.com.democollection.ui.WebMoviUI;
+import mo.com.democollection.ui.WebViewHtml5Js_demo;
 import mo.com.democollection.utils.UIUtils;
 
 /**
@@ -38,8 +42,9 @@ import mo.com.democollection.utils.UIUtils;
  * @更新描述 TODO
  */
 public class AppFragment extends BaseFragment implements AdapterView.OnItemClickListener {
-    private static final String TAG = "HomeFragment";
+
     private GridView mGv;
+    private static final String TAG = "HomeFragment";
     private String[] mAppList;
     private AppListAdapter mAdapter;
     private int[] icon;
@@ -56,12 +61,15 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
 
         icon = new int[]{R.drawable.finder, R.drawable.movies,
                 R.drawable.antivirus, R.drawable.email,
-                R.drawable.steam, R.drawable.minecraft,R.drawable.minecraft
-                ,R.drawable.minecraft,R.drawable.minecraft,R.drawable.minecraft};
+                R.drawable.steam, R.drawable.minecraft
+                ,R.drawable.minecraft,R.drawable.minecraft,
+                R.drawable.minecraft,R.drawable.minecraft,R.drawable.minecraft,R.drawable.finder};
         if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
         }
         return Loadingpager.LoadedResult.SUCCESS;
+
+
     }
 
     /**
@@ -90,6 +98,7 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
                 break;
             case 1:
                 /*手机视频*/
+                preActivity(MovieActivity.class);
                 break;
 
             case 2:
@@ -117,6 +126,18 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
             case 7:
                 /*数据加密*/
                 preActivity(EncryptUI.class);
+                break;
+            case 8:
+                /*HttpClient网络数据访问*/
+                preActivity(NetWork_Activity.class);
+                break;
+            case 9:
+                /*html5 js网页交互*/
+                preActivity(WebViewHtml5Js_demo.class);
+                break;
+            case 10:
+                /*android画廊*/
+                preActivity(GalleryDemo.class);
                 break;
             default:
                 break;

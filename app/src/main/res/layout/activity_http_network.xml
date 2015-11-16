@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity" >
+
+    <!--表单key-value方式-->
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="keyValuePost"
+        android:layout_height="wrap_content"
+        android:text="表单key-value方式" />
+
+    <!--jsonString数据方式-->
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="jsonString"
+        android:layout_height="wrap_content"
+        android:text="jsonString数据方式" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="httpMimeImg"
+        android:layout_height="wrap_content"
+        android:text="上传单张图片" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:onClick="httpMimeImgs"
+        android:layout_height="wrap_content"
+        android:text="上传多张图片" />
+
+</LinearLayout>

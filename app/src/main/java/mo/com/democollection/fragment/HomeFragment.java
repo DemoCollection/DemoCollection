@@ -3,7 +3,6 @@ package mo.com.democollection.fragment;/**
  */
 
 import android.graphics.Color;
-import android.os.SystemClock;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.widget.AbsListView;
@@ -49,7 +48,7 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         String[] dataStrings = Cheeses.sCheeseStrings;
         mListData = new ArrayList<String>();
         for (int i = 0; i < 20; i++) {
-            mListData.add("test" + i);
+            mListData.add(dataStrings[i]);
         }
         return Loadingpager.LoadedResult.SUCCESS;
     }
@@ -67,16 +66,15 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
         mListView = (ListView) view.findViewById(R.id.lv_home);
         mListView.setAdapter(new HomeFragmentAdapter(mListView, mListData));
 
-
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.swipe_container);
         //设置下拉刷新监听事件
         mSwipeRefreshLayout.setOnRefreshListener(this);
         //设置进度条的颜色
-        mSwipeRefreshLayout.setColorSchemeColors(Color.RED, Color.BLUE, Color.GREEN);
+        mSwipeRefreshLayout.setColorSchemeColors(R.color.primary, R.color.primary, R.color.colorAccent);
         //设置圆形进度条大小
         mSwipeRefreshLayout.setSize(SwipeRefreshLayout.LARGE);
         //设置进度条背景颜色
-        mSwipeRefreshLayout.setProgressBackgroundColorSchemeColor(Color.DKGRAY);
+        mSwipeRefreshLayout.setProgressBackgroundColorSchemeColor(Color.YELLOW);
         //设置下拉多少距离之后开始刷新数据
         mSwipeRefreshLayout.setDistanceToTriggerSync(50);
 
@@ -85,21 +83,12 @@ public class HomeFragment extends BaseFragment implements SwipeRefreshLayout.OnR
 
     @Override
     public void onRefresh() {
-        new Thread(new Runnable() {
+        UIUtils.postTaskSafely(new Runnable() {
             @Override
             public void run() {
-                SystemClock.sleep(2000);
-
-                UIUtils.postTaskSafely(new Runnable() {
-                    @Override
-                    public void run() {
-                        mSwipeRefreshLayout.setRefreshing(false);
-                    }
-                });
-
+                mSwipeRefreshLayout.setRefreshing(false);
             }
-        });
-
+        },2000);
 
     }
 

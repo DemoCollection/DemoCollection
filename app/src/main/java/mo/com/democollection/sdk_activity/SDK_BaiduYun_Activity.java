@@ -36,7 +36,6 @@ public class SDK_BaiduYun_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sdk__baidu_yun_);
-
         mIcon = (ImageView) findViewById(R.id.iv_icon);
 
     }
