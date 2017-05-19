@@ -2,17 +2,16 @@ package mo.com.democollection.holder;/**
  * Created by  on
  */
 
-import android.content.Context;
 import android.graphics.Bitmap;
-import android.support.v7.widget.CardView;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 import mo.com.democollection.R;
 import mo.com.democollection.base.BaseHolder;
-import mo.com.democollection.utils.ImageLoader;
+import mo.com.democollection.model.Item;
 import mo.com.democollection.utils.UIUtils;
 
 /**
@@ -25,29 +24,26 @@ import mo.com.democollection.utils.UIUtils;
  * @更新时间 $Date
  * @更新描述 TODO
  */
-public class HomeHolder extends BaseHolder<String> {
+public class HomeHolder extends BaseHolder<Item> {
 
     private static final String TAG = "HomeHolder";
     private ImageView item_icon;
     private TextView tv;
     private int mPosition;
     private Bitmap bitmap;
+    private View mCardView;
 
     public HomeHolder(int position) {
         mPosition = position;
     }
 
     @Override
-    protected void refreshHolderView(String data) {
-        tv.setText(data);
+    protected void refreshHolderView(Item data) {
+        tv.setText(data.title);
+        ImageLoader.getInstance().displayImage("drawable://"+data.pic_id, item_icon);
 
-        WindowManager wm = (WindowManager) UIUtils.getContext().getSystemService(Context.WINDOW_SERVICE);
-        ImageLoader.getInstance().loadImage(item_icon,
-                R.drawable.cheese_2,
-                wm.getDefaultDisplay().getWidth(),
-                wm.getDefaultDisplay().getHeight(),null);
-
-        item_icon.setImageBitmap(bitmap);
+//        item_icon.setImageResource(Cheeses.getRandomCheeseDrawable());
+//        mCardView.setBackgroundResource(R.drawable.cheese_2);
 
 
     }
@@ -55,10 +51,10 @@ public class HomeHolder extends BaseHolder<String> {
     @Override
     protected View initHolderView() {
 
-        CardView mCardView = (CardView) View.inflate(UIUtils.getContext(), R.layout.item_home, null);
-
-        item_icon = (ImageView) mCardView.findViewById(R.id.item_home_icon);
-        tv = (TextView) mCardView.findViewById(R.id.item_tv_title);
+        mCardView =  View.inflate(UIUtils.getContext(), R.layout.item_home2, null);
+//        mCardView = (CardView) View.inflate(UIUtils.getContext(), R.layout.item_home2, null);
+        item_icon = (ImageView) mCardView.findViewById(R.id.news_info_photo);
+        tv = (TextView) mCardView.findViewById(R.id.tv_title);
         return mCardView;
     }
 }

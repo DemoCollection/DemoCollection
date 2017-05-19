@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="mo.com.democollection" >
+    xmlns:tools="http://schemas.android.com/tools"
+    package="mo.com.democollection">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <!-- To auto-complete the email text field in the login form with the user's emails -->
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- 指纹识别权限 -->
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
 
     <!-- 二维码扫描权限 -->
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -41,6 +45,9 @@
     <!-- SD卡读取权限，用户写入离线定位数据 -->
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
+    <!-- 振动权限 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
     <!-- 屏幕适配的时候使用到这个配置 -->
     <supports-screens
         android:anyDensity="true"
@@ -48,14 +55,16 @@
         android:normalScreens="true" />
 
     <application
-        android:name=".base.BaseApplication"
+        android:name="mo.com.democollection.base.BaseApplication"
         android:allowBackup="true"
         android:configChanges="orientation|screenSize|keyboardHidden"
+        android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:screenOrientation="portrait"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme"
+        tools:replace="Android:icon, android:theme">
 
         <!-- 百度地图接入 -->
         <meta-data
@@ -63,10 +72,10 @@
             android:value="r4r5yHghTWM5mZxGODGpCFmd" />
 
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.LaunchActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme" >
+            android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -76,6 +85,9 @@
 
         <!-- 登入页面 -->
         <activity android:name=".activity.LoginActivity" />
+
+        <!-- 详细页面 -->
+        <activity android:name=".activity.DetailActivity" />
 
         <!-- 网页是视频 -->
         <activity
@@ -98,43 +110,40 @@
         <activity android:name=".ui.SenSorUI" />
 
         <!-- 数据加密算法实现 -->
-        <activity
-            android:name=".ui.EncryptUI"  />
+        <activity android:name=".ui.EncryptUI" />
         <activity android:name=".ui.MusicUI" />
 
         <!-- 百度网盘接入 -->
         <activity
             android:name=".sdk_activity.SDK_BaiduYun_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat" >
-        </activity>
+            android:theme="@style/Base.Theme.AppCompat" />
 
         <!-- 百度地图接入 -->
         <activity
             android:name=".sdk_activity.SDK_BaiduMap_Activity"
             android:screenOrientation="portrait"
-            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" >
-        </activity>
+            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar" />
         <!-- 百度定位服务 -->
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
-            android:process=":remote" >
-        </service>
+            android:process=":remote" />
 
-        <activity android:name=".app_activity.MovieActivity" >
-        </activity>
-        <activity android:name=".app_activity.NetWork_Activity" >
-        </activity>
+        <activity android:name=".app_activity.MovieActivity" />
+        <activity android:name=".app_activity.NetWork_Activity" />
+        <activity android:name=".cardIo.CardIoActivity" />
 
         <!-- Html webView js交互测试 -->
         <activity
             android:name=".ui.WebViewHtml5Js_demo"
-            android:theme="@style/Base.Theme.AppCompat" >
-        </activity>
-        <activity android:name=".ui.GalleryDemo" >
-        </activity>
-
+            android:theme="@style/Base.Theme.AppCompat" />
+        <activity android:name=".ui.GalleryDemo" />
+        <activity android:name=".anim.SnowrainActivity" />
+        <activity android:name=".anim.ShoppingCartActivity" />
+        <activity android:name=".wave.WaveviewSample" />
+        <activity android:name=".timeselector.TimeSeletorSample" />
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

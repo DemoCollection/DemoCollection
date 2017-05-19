@@ -1,0 +1,20 @@
+{
+  "bankCode": "30050000",
+  "acctUse": "",
+  "seqNo": "264338",
+  "txTime": "092944",
+  "sign": "una720aM4VoHBkotEZvNRDnDS/wcSEeULlAb1TDz9xp6lvTO6vSa+WQn2mhYSGtoDL/3sjQvMFGgpj2yD5gRdE/CShaH/e837n+Qyp5IECkBL3Kp/IldcL+y3610tPzvF0mtJglep7OMLQGJnFfE4yy467kALODVoKIFtsAdbqo=",
+  "channel": "000002",
+  "retCode": "JX900101",
+  "version": "10",
+  "retMsg": "账户不存在",
+  "availBal": "",
+  "currBal": "",
+  "accountId": "6212461270000004701",
+  "withdrawFlag": "",
+  "name": "",
+  "instCode": "00770001",
+  "txCode": "balanceQuery",
+  "accType": "",
+  "txDate": "20170307"
+}

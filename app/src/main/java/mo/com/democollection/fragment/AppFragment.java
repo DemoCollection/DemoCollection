@@ -18,18 +18,23 @@ import android.widget.TextView;
 
 import mo.com.democollection.MainActivity;
 import mo.com.democollection.R;
+import mo.com.democollection.anim.ShoppingCartActivity;
+import mo.com.democollection.anim.SnowrainActivity;
 import mo.com.democollection.app_activity.MovieActivity;
 import mo.com.democollection.app_activity.NetWork_Activity;
 import mo.com.democollection.base.BaseFragment;
 import mo.com.democollection.base.Loadingpager;
+import mo.com.democollection.cardIo.CardIoActivity;
+import mo.com.democollection.timeselector.TimeSeletorSample;
 import mo.com.democollection.ui.DimensionalCodeUI;
-import mo.com.democollection.ui.EncryptUI;
 import mo.com.democollection.ui.GalleryDemo;
 import mo.com.democollection.ui.MusicUI;
 import mo.com.democollection.ui.SenSorUI;
 import mo.com.democollection.ui.WebMoviUI;
 import mo.com.democollection.ui.WebViewHtml5Js_demo;
 import mo.com.democollection.utils.UIUtils;
+import mo.com.democollection.wave.WaveviewSample;
+
 
 /**
  * @创建者 MoMxMo
@@ -62,14 +67,16 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
         icon = new int[]{R.drawable.finder, R.drawable.movies,
                 R.drawable.antivirus, R.drawable.email,
                 R.drawable.steam, R.drawable.minecraft
-                ,R.drawable.minecraft,R.drawable.minecraft,
-                R.drawable.minecraft,R.drawable.minecraft,R.drawable.minecraft,R.drawable.finder};
+                , R.drawable.minecraft, R.drawable.minecraft,
+                R.drawable.minecraft, R.drawable.minecraft,
+                R.drawable.minecraft, R.drawable.finder,
+                R.drawable.finder, R.drawable.finder,
+                R.drawable.minecraft, R.drawable.steam
+                , R.drawable.minecraft};
         if (mAdapter != null) {
             mAdapter.notifyDataSetChanged();
         }
         return Loadingpager.LoadedResult.SUCCESS;
-
-
     }
 
     /**
@@ -125,7 +132,7 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
                 break;
             case 7:
                 /*数据加密*/
-                preActivity(EncryptUI.class);
+//                preActivity(EncryptUI.class);
                 break;
             case 8:
                 /*HttpClient网络数据访问*/
@@ -138,6 +145,27 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
             case 10:
                 /*android画廊*/
                 preActivity(GalleryDemo.class);
+                break;
+            case 11:
+               /*下雪*/
+                preActivity(SnowrainActivity.class);
+                break;
+            case 12:
+              /*购物车*/
+                preActivity(ShoppingCartActivity.class);
+
+                break;
+            case 13:
+              /*银行卡号码扫描*/
+                preActivity(CardIoActivity.class);
+                break;
+            case 14:
+              /*水波球*/
+                preActivity(WaveviewSample.class);
+                break;
+            case 15:
+              /*时间选择日期*/
+                preActivity(TimeSeletorSample.class);
                 break;
             default:
                 break;
@@ -172,14 +200,14 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
             mBuilder.setContentTitle("测试标题")//设置通知栏标题
                     .setContentText("测试内容") //设置通知栏显示内容
                     .setContentIntent(getDefalutIntent(Notification.FLAG_AUTO_CANCEL)) //设置通知栏点击意图
-                            //	.setNumber(number) //设置通知集合的数量
+                    //	.setNumber(number) //设置通知集合的数量
                     .setTicker("测试通知来啦") //通知首次出现在通知栏，带上升动画效果的
                     .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示，一般是系统获取到的时间
                     .setPriority(Notification.PRIORITY_DEFAULT) //设置该通知优先级
-                            //	.setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
+                    //	.setAutoCancel(true)//设置这个标志当用户单击面板就可以让通知将自动取消
                     .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
                     .setDefaults(Notification.DEFAULT_VIBRATE)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合
-                            //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
+                    //Notification.DEFAULT_ALL  Notification.DEFAULT_SOUND 添加声音 // requires VIBRATE permission
                     .setSmallIcon(R.drawable.mo);//设置通知小ICON
 
             Notification notification = mBuilder.build();
@@ -226,6 +254,7 @@ public class AppFragment extends BaseFragment implements AdapterView.OnItemClick
 
     /**
      * 跳转到下一个页面
+     *
      * @param clazz
      */
     private void preActivity(Class clazz) {

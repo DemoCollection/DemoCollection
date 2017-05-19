@@ -1,0 +1,59 @@
+apply plugin: 'com.android.application'
+apply from: 'tinkerpatch.gradle'
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:multidex:1.0.1'
+    // 若使用annotation需要单独引用,对于tinker的其他库都无需再引用
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.9'
+    compile 'com.tinkerpatch.sdk:tinkerpatch-android-sdk:1.1.6'
+}
+
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    signingConfigs {
+        debug {
+            storeFile rootProject.file("keystore/debug.keystore")
+        }
+        release {
+            keyAlias 'momxmo'
+            keyPassword 'momxmo'
+            storeFile file('C:/Users/admin/Desktop/DemoCollection/app/keystore/app.jks')
+            storePassword 'momxmo'
+        }
+    }
+    defaultConfig {
+        applicationId "tinker.sample.android"
+        minSdkVersion 10
+        targetSdkVersion 25
+        versionName "1.0.1"
+        versionCode 101
+        multiDexEnabled true
+        signingConfig signingConfigs.release
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+//            proguardFiles getDefaultProguardFile('proguard-android.txt')
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            signingConfig signingConfigs.debug
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    productFlavors {
+    }
+}
+
+

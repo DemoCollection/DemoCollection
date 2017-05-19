@@ -12,6 +12,11 @@
         <item>网络</item>
         <item>html5 js交互测试</item>
         <item>选择相片上传（百度云）</item>
+        <item>下雪</item>
+        <item>购物车</item>
+        <item>银行卡</item>
+        <item>水球</item>
+        <item>日期</item>
     </string-array>
 
     <string-array name="sdk_list">
@@ -21,5 +26,23 @@
         <item>支付宝支付</item>
         <item>即时通讯</item>
         <item>ShardSDK分享</item>
+    </string-array>
+    <array name="splash_icon">
+        <item>@drawable/splash_iv_first</item>
+        <item>@drawable/splash_iv_second</item>
+        <item>@drawable/splash_iv_third</item>
+        <item>@drawable/splash_iv_forth</item>
+    </array>
+    <array name="splash_bg">
+        <item>@color/light_green_500</item>
+        <item>@color/amber_500</item>
+        <item>@color/red_400</item>
+        <item>@color/blue_500</item>
+    </array>
+    <string-array name="splash_desc">
+        <item>第一次写博客</item>
+        <item>觉得行，来个肯定吧</item>
+        <item>有不好的地方欢迎大神指点</item>
+        <item>记得分享哟</item>
     </string-array>
 </resources>

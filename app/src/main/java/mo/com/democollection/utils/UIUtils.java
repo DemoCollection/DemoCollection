@@ -6,7 +6,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.os.Handler;
 
-import mo.com.democollection.base.BaseApplication;
+import mo.com.democollection.base.SampleApplicationLike;
 
 
 /**
@@ -24,7 +24,7 @@ public class UIUtils {
      * 获取上下文
      */
     public static Context getContext() {
-        return BaseApplication.getContext();
+        return SampleApplicationLike.getContext();
     }
 
     /**
@@ -66,14 +66,14 @@ public class UIUtils {
      * 获取程序的主线程ID
      */
     public static long getMainThreadID() {
-        return BaseApplication.getMainThreadID();
+        return SampleApplicationLike.getMainThreadID();
     }
 
     /**
      * 获取主线程中的handler对象
      */
     public static Handler getMainHandler() {
-        return BaseApplication.getHandler();
+        return SampleApplicationLike.getHandler();
     }
 
     /**
